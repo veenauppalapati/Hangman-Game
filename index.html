@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hangman two</title>
+	<style type="text/css">
+		
+		#hangman
+		{
+
+			background: red;
+			width:50%;
+			min-height: 400px;
+			margin:0 auto;
+
+		}
+
+		#hangmanTitle
+		{
+			background: black;
+			text-align: center;
+			color:white;
+
+		}
+
+		#wordbox
+		{
+			background:yellow;
+			min-height: 100px;
+			color:blue;
+			line-height: 100px;
+		}
+
+	</style>
+
+	<script type="text/javascript"> /*Opening tag for javascript */
+
+// GLOBAL VARIABLES
+// create an array variable to store a set of words
+var wordCollectionArray = 	[
+
+								"world",
+								"country",
+								"state"
+							];
+//create an array for the user input letters
+var UnderscoreArray="";
+var guessedLettersinputArray = "";
+var scoreWins;
+var scoreloses;
+
+function mathRandom()
+		{
+			//Math.Random fuction should take action on choosing a word from the Array
+		var rand = wordCollectionArray[Math.floor(Math.random()* wordCollectionArray.length)];	
+		console.log(rand);
+		// After it goes the phase of choosing a word from the Array it needs to \
+		var targetDiv = document.getElementById ("wordbox");
+		console.log(targetDiv)
+		
+		fillUnderscoreArray(rand);
+		targetDiv.innerHTML = UnderscoreArray;
+		//document.write ("enter pressed");
+		//document.write("computer has chosen the word" + rand);
+
+		}	
+
+function fillUnderscoreArray (word)
+{
+	for (var i = 0; i< word.length; i++)
+	{
+		UnderscoreArray += " _ " //+= is adding to the string variable =  variable + something instead of array we used string concatination so we dont get commas
+	}
+	console.log("Underscore Array "+ UnderscoreArray);
+}
+
+//-------------------------------------------------------------------------------------------
+
+//input a key to start the game
+document.onkeyup = function(event)
+{
+	
+	var userInput = event.key;
+	console.log(userInput);
+//if user press Enter
+	if(userInput == "Enter")
+	{
+
+		mathRandom();
+		
+				
+	}
+
+	else{
+		alert("Undefined key.  please press Enter")
+	}
+	//document.write("letter guessed:  " + userInput );
+
+		
+	
+};
+
+
+
+//it loads
+// display a message using innerHTML command " Please press enter to start the game"
+// User shall press enter; if they press enter display the chosen word in underscores by the computer else display the message( Undefined key...)
+//Game starts
+// pick a random word
+// create the word in underscores
+// display all underscores
+// let the user know choose a letter
+// wait for user input
+// grab the user's input 
+// create a forloop to check each letter with user's input 
+// if the letter is in the word replace the underscore with the user's letter 
+//for (var i = 0; i < word.length; i++)
+//{
+	//var currentLetter = word.charAt(i);// finding each letter
+	//if (currentLetter == usersguess)
+	//{
+
+	//}
+
+//}
+
+
+
+// create another function which will carry Math random function
+
+
+
+//choose a random number
+
+
+
+// the computer chooses a random word // math.random
+// pick the word using the random number
+// once the word is choosen the underscore of ther number of characters in the word
+// create a variable for wins, losses guesses
+// 
+	
+	</script> <!--Closing tag for javascript -->
+</head>
+
+<body>
+	<div id = "hangman">
+		<div id = "hangmanTitle">
+		Hangman Game
+		<div id="wordbox">
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>
